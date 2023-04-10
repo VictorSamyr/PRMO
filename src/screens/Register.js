@@ -4,7 +4,7 @@ import validator from "validator";
 import { createUserWithEmailAndPassword, getAuth, sendEmailVerification, signInWithEmailAndPassword } from "firebase/auth";
 import * as SecureStore from 'expo-secure-store';
 
-const Register = () => {
+const Register = ({navigation}) => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -50,7 +50,7 @@ const Register = () => {
         placeholder="Digite sua senha"
       ></TextInput>
       <Button title="Registro" onPress={doRegister} disabled={buttonDisabled}></Button>
-      <Text>Já Possui Conta?, faça <Text style={{color:"#3F89AB"}} onPress={() => {}}>Login</Text></Text>
+      <Text>Já Possui Conta?, faça <Text style={{color:"#3F89AB"}} onPress={() => {navigation.navigate('Login')}}>Login</Text></Text>
     </View>
   );
 }

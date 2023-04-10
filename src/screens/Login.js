@@ -4,7 +4,7 @@ import validator from "validator";
 import { getAuth, sendPasswordResetEmail, signInWithEmailAndPassword } from "firebase/auth";
 import * as SecureStore from 'expo-secure-store';
 
-const Login = () => {
+const Login = ({navigation}) => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,7 +24,8 @@ const Login = () => {
         Alert.alert('Aplicativo', 'Não foi possível fazer o login!', [
           { text: 'OK', onPress: () => { } },
         ]);
-      })
+      });
+      navigation.navigate('Home');
   }
 
   useEffect(() => {
@@ -50,7 +51,7 @@ const Login = () => {
       ></TextInput>
       <Button title="Entrar" onPress={doLogin} disabled={buttonDisabled}></Button>
       <View style={{justifyContent: "center", alignItems: "center" }}>
-        <Text>Não tem Conta?, <Text style={{color:"#3F89AB"}} onPress={() => {}}>Registre-se</Text></Text>
+        <Text>Não tem Conta?, <Text style={{color:"#3F89AB"}} onPress={() => {navigation.navigate('Register')}}>Registre-se</Text></Text>
       </View>
     </View>
   );

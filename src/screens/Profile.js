@@ -2,12 +2,11 @@ import { View, Text, Button, TextInput, Alert } from "react-native";
 import { getAuth, updateProfile } from "firebase/auth";
 import { useState } from "react";
 import React from "react";
-import firebase from "firebase/app";
-import "firebase/storage";
 
 const Profile = () => {
 
   const firebaseAuth = getAuth();
+  console.log(firebaseAuth);
   const user = firebaseAuth.currentUser;
 
   const [name, setName] = useState(user.displayName);

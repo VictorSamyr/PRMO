@@ -3,9 +3,8 @@ import { useNavigation } from '@react-navigation/native';
 import * as SecureStore from 'expo-secure-store';
 import { getAuth, sendPasswordResetEmail} from "firebase/auth";
 
-const Home = () => {
+const Home = ({navigation}) => {
 
-  const navigation = useNavigation();
   const firebaseAuth = getAuth();
   const user = firebaseAuth.currentUser;
   

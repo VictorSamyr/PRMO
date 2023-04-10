@@ -33,15 +33,8 @@ export default function App() {
     }
   });
 
-  if (user) {
-    return (
-      <AppNavigation></AppNavigation>
-    );
-  } else {
-    return (
-      <Login></Login>
-      //<Registro></Registro>
-    );
-  }
+  return (
+    <AppNavigation></AppNavigation>
+  );
 }
 
